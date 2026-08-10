@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assemble - 數學筆記編輯器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">
+            <img src="app-logo.png" alt="Assemble logo" class="navbar-logo">
+            <span class="navbar-title">Assemble</span>
+        </a>
+        <div class="navbar-links">
+            <!-- Future: Explore, Pricing, etc. -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Assemble</h1>
+        <p class="tagline">你的數學筆記編輯器</p>
+
+        <!-- Image carousel -->
+        <div class="carousel">
+            <button class="carousel-btn carousel-prev" aria-label="上一張">&#10094;</button>
+            <div class="carousel-viewport">
+                <img src="img/display-img (1).png" alt="Assemble 截圖 1" class="carousel-slide">
+            </div>
+            <button class="carousel-btn carousel-next" aria-label="下一張">&#10095;</button>
+        </div>
+
+        <div class="download-section">
+            <a class="download-btn" href="downloads/Assemble_0.9.2.0_x64.msix" download>
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Windows 版<small class="sub"> · MSIX · 5.8 MB</small></span>
+            </a>
+
+            <a class="download-btn" href="downloads/Assemble-0.9.2-universal.dmg" download>
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>macOS 版<small class="sub"> · DMG · 9.8 MB</small></span>
+            </a>
+        </div>
+
+        <p class="version">最新版本：0.9.2</p>
+
+        <div class="footer">
+            <p>© 2026 Assemble</p>
+            <p><a href="privacy-policy.html">隱私權政策 / Privacy Policy</a></p>
+        </div>
+    </div>
+
+    <script>
+        // 圖片輪播 - 循環切換
+        (function () {
+            const slides = [
+                'img/display-img (1).png',
+                'img/display-img (2).png',
+                'img/display-img (3).png',
+            ];
+            let current = 0;
+            const viewport = document.querySelector('.carousel-viewport');
+            const slideImg = document.querySelector('.carousel-slide');
+
+            function showSlide(index) {
+                slideImg.src = slides[index];
+                current = index;
+            }
+
+            document.querySelector('.carousel-next').addEventListener('click', () => {
+                showSlide((current + 1) % slides.length);  // 循環：最後一張按右回到第一張
+            });
+
+            document.querySelector('.carousel-prev').addEventListener('click', () => {
+                showSlide((current - 1 + slides.length) % slides.length);  // 循環：第一張按左回到最後一張
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+/* Assemble 官方網站樣式 - 參考 app 配色 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft YaHei', '微軟正黑體',
+        system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(180deg, #fdf7f9, #ffecf9);
+    color: #7c4a6e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ── Navigation bar ── */
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+    background: rgba(253, 247, 249, 0.9);
+    border-bottom: 2px solid #e8d5df;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.navbar-logo {
+    width: 36px;
+    height: 36px;
+}
+
+.navbar-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #5a3d4f;
+    letter-spacing: -0.02em;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+/* ── Header ── */
+.logo {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #5a3d4f;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #9b6b8a;
+    margin-bottom: 2rem;
+}
+
+/* ── Carousel ── */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.carousel-viewport {
+    width: 100%;
+    max-width: 640px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(124, 74, 110, 0.15);
+    background: white;
+}
+
+.carousel-slide {
+    width: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.carousel-btn {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e8d5df;
+    border-radius: 50%;
+    background: white;
+    color: #7c4a6e;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(124, 74, 110, 0.1);
+}
+
+.carousel-btn:hover {
+    background: #fdf7f9;
+    border-color: #d8a4c3;
+    color: #5a3d4f;
+    transform: scale(1.05);
+}
+
+/* ── Download buttons ── */
+.download-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #d969ac, #c48bb8);
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(217, 105, 172, 0.3);
+    min-width: 280px;
+    justify-content: center;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 105, 172, 0.4);
+}
+
+.download-btn .icon {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+}
+
+.download-btn .sub {
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+/* ── Version info ── */
+.version {
+    font-size: 0.9rem;
+    color: #9b6b8a;
+    margin-bottom: 2rem;
+}
+
+/* ── Footer / links ── */
+.footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e8d5df;
+    font-size: 0.85rem;
+    color: #9b6b8a;
+}
+
+.footer a {
+    color: #d969ac;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* ── Privacy policy page ── */
+.privacy {
+    text-align: left;
+    line-height: 1.8;
+}
+
+.privacy h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.privacy h2 {
+    font-size: 1.3rem;
+    color: #5a3d4f;
+    margin: 1.5rem 0 0.5rem;
+}
+
+.privacy h3 {
+    font-size: 1.1rem;
+    color: #7c4a6e;
+    margin: 1rem 0 0.5rem;
+}
+
+.privacy p, .privacy li {
+    color: #5a3d4f;
+    margin-bottom: 0.5rem;
+}
+
+.privacy ul {
+    padding-left: 1.5rem;
+}
+
+.privacy a {
+    color: #d969ac;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #d969ac;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
