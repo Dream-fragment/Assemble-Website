@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>驗證成功 — Assemble</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .success-check {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 1.25rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d969ac, #c48bb8);
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(217, 105, 172, 0.35);
+        }
+        .success-sub { color: #9b6b8a; margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">
+            <img src="app-logo.png" alt="Assemble logo" class="navbar-logo">
+            <span class="navbar-title">Assemble</span>
+        </a>
+    </nav>
+
+    <div class="container">
+        <div class="success-check">✓</div>
+        <h1>驗證成功！</h1>
+        <p class="success-sub">你可以回到 Assemble 應用程式繼續使用。</p>
+        <a id="return-btn" class="download-btn" href="assemble://auth-callback">返回 Assemble 應用</a>
+    </div>
+
+    <script>
+        (function () {
+            // OAuth（PKCE）→ ?code=xxx；Email 驗證（implicit）→ #access_token=xxx&refresh_token=xxx
+            const params = new URLSearchParams(window.location.search);
+            const hash = window.location.hash;
+
+            let target = 'assemble://auth-callback';
+
+            if (params.has('code')) {
+                target += '?code=' + params.get('code');
+            } else if (hash && hash.length > 1) {
+                const h = new URLSearchParams(hash.slice(1));
+                const at = h.get('access_token');
+                const rt = h.get('refresh_token');
+                if (at && rt) {
+                    target += '#access_token=' + at + '&refresh_token=' + rt;
+                }
+            }
+
+            // 讓「返回」按鈕也指向正確的 deep link（自動跳轉被瀏覽器擋時的 fallback）
+            document.getElementById('return-btn').href = target;
+
+            // 自動跳回 app（延遲一點讓使用者看到成功訊息）
+            setTimeout(function () {
+                window.location.href = target;
+            }, 500);
+        })();
+    </script>
+</body>
+</html>
