@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — Assemble</title>
+    <meta name="description"
+        content="Simple pricing for Assemble. Free forever, or go Pro for unlimited blocks, sync and backup.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/pricing.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="navbar-brand">
+            <img src="app-logo.png" alt="Assemble logo" class="navbar-logo">
+            <span class="navbar-title">Assemble</span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html#features">Features</a>
+            <a href="index.html#faq">Resources</a>
+            <a href="pricing.html" class="active">Pricing</a>
+        </div>
+        <a href="index.html#download" class="navbar-download">Download</a>
+    </nav>
+
+    <main>
+        <section class="pricing" id="pricing">
+            <div class="pricing-hero">
+                <h1 class="pricing-title">Simple pricing.</h1>
+                <p class="pricing-subtitle">Start free. Upgrade when you need more.</p>
+
+                <!-- Billing toggle -->
+                <div class="billing-toggle">
+                    <button class="toggle-option active" data-billing="yearly" type="button">
+                        Pay yearly
+                        <span class="toggle-badge">Save 60% with yearly</span>
+                    </button>
+                    <button class="toggle-option" data-billing="monthly" type="button">Pay monthly</button>
+                </div>
+            </div>
+
+            <!-- Cards -->
+            <div class="pricing-cards">
+                <!-- Free -->
+                <div class="pricing-card free">
+                    <div class="card-label">Free</div>
+                    <div class="card-price">$0 <span class="price-period">/forever</span></div>
+                    <p class="card-desc">For trying out Assemble.</p>
+                    <a href="index.html#download" class="btn card-cta outline">Start free</a>
+                    <ul class="card-features">
+                        <li>Unlimited local notes</li>
+                        <li>Access to all types of blocks</li>
+                        <li>1000 total blocks</li>
+                        <li>10 synced notes</li>
+                        <li>PDF and HTML export with watermarks</li>
+                    </ul>
+                </div>
+
+                <!-- Pro (featured) -->
+                <div class="pricing-card pro featured">
+                    <div class="card-badge">MOST POPULAR</div>
+                    <div class="card-label">Pro</div>
+                    <div class="card-price">
+                        <span class="price-strike">$228</span>
+                        <span class="price-value">128</span> HKD
+                        <span class="price-period" id="price-period">/first year</span>
+                    </div>
+                    <p class="offer-note">Early-bird offer ends Dec 31, 2026</p>
+                    <p class="card-desc">For serious students.</p>
+                    <a href="#" class="btn card-cta gradient">Get started with Pro</a>
+                    <ul class="card-features">
+                        <li>Everything in Free</li>
+                        <li>Unlimited blocks</li>
+                        <li>Unlimited sync</li>
+                        <li>No watermarks</li>
+                        <li>Auto backup</li>
+                        <li>30-day version history</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Comparison table -->
+            <div class="comparison">
+                <h2 class="comparison-title">Compare all features</h2>
+                <div class="comparison-table-wrap">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Free</th>
+                                <th>Pro</th>
+                            </tr>
+                            <tr class="cta-row">
+                                <th></th>
+                                <th><a href="index.html#download" class="table-cta outline">Choose Free</a></th>
+                                <th><a href="#" class="table-cta gradient">Choose Pro</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="section-row">
+                                <td colspan="3">Notes &amp; Blocks</td>
+                            </tr>
+                            <tr>
+                                <td>Local notes</td>
+                                <td>Unlimited</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Total blocks</td>
+                                <td>1000</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Pre-built blocks</td>
+                                <td><span class="check">✓</span></td>
+                                <td><span class="check">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>LaTeX support</td>
+                                <td><span class="check">✓</span></td>
+                                <td><span class="check">✓</span></td>
+                            </tr>
+
+                            <tr class="section-row">
+                                <td colspan="3">Sync &amp; Backup</td>
+                            </tr>
+                            <tr>
+                                <td>Synced notes</td>
+                                <td>10</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Auto backup</td>
+                                <td><span class="dash">—</span></td>
+                                <td><span class="check">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>Version history</td>
+                                <td><span class="dash">—</span></td>
+                                <td>30 days</td>
+                            </tr>
+
+                            <tr class="section-row">
+                                <td colspan="3">Export</td>
+                            </tr>
+                            <tr>
+                                <td>PDF export</td>
+                                <td><span class="check">✓</span> (watermark)</td>
+                                <td><span class="check">✓</span> (no watermark)</td>
+                            </tr>
+                            <tr>
+                                <td>Interactive HTML export</td>
+                                <td><span class="check">✓</span> (watermark)</td>
+                                <td><span class="check">✓</span></td>
+                            </tr>
+
+                            <tr class="section-row">
+                                <td colspan="3">Support</td>
+                            </tr>
+                            <tr>
+                                <td>Community</td>
+                                <td><span class="check">✓</span></td>
+                                <td><span class="check">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td>Priority support</td>
+                                <td><span class="dash">—</span></td>
+                                <td><span class="check">✓</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-brand">
+            <img src="app-logo.png" alt="Assemble">
+            <span>Assemble</span>
+        </div>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="refund-policy.html">Refund Policy</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Assemble</p>
+    </footer>
+
+    <script>
+        (function () {
+            var yearlyBtn = document.querySelector('[data-billing="yearly"]');
+            var monthlyBtn = document.querySelector('[data-billing="monthly"]');
+            var priceValue = document.querySelector('.price-value');
+            var pricePeriod = document.getElementById('price-period');
+            var priceEls = document.querySelectorAll('.card-price');
+            var proCard = document.querySelector('.pricing-card.pro');
+
+            function setBilling(mode) {
+                var yearly = mode === 'yearly';
+                yearlyBtn.classList.toggle('active', yearly);
+                monthlyBtn.classList.toggle('active', !yearly);
+                proCard.classList.toggle('monthly', !yearly);
+                if (yearly) {
+                    priceValue.textContent = '128';
+                    pricePeriod.textContent = '/first year';
+                } else {
+                    priceValue.textContent = '48';
+                    pricePeriod.textContent = '/month';
+                }
+                priceEls.forEach(function (el) {
+                    el.classList.remove('bump');
+                    void el.offsetWidth;   // 強制重排，讓動畫重播
+                    el.classList.add('bump');
+                });
+            }
+
+
+            yearlyBtn.addEventListener('click', function () { setBilling('yearly'); });
+            monthlyBtn.addEventListener('click', function () { setBilling('monthly'); });
+
+            // Navbar scroll shadow
+            var navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 10) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+/* ============ Pricing Hero ============ */
+.pricing-hero {
+    position: relative;
+    padding: 100px 24px 60px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* 粉色漸變擴散 */
+.pricing-hero::before {
+    content: '';
+    position: absolute;
+    top: -130%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 1200px;
+    background: radial-gradient(
+        circle at center,
+        rgba(251, 108, 193, 0.25) 0%,
+        rgba(255, 147, 165, 0.15) 30%,
+        rgba(255, 243, 245, 0.05) 60%,
+        transparent 80%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pricing-hero h1,
+.pricing-hero p,
+.pricing-hero .billing-toggle {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============ Pricing ============ */
+.pricing {
+    padding: 0 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pricing-title {
+    text-align: center;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    /* background: linear-gradient(135deg, var(--btn-1), var(--btn-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; */
+}
+
+.pricing-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+/* Billing toggle */
+.billing-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 56px;
+}
+
+.toggle-option {
+    position: relative;
+    padding: 10px 22px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.toggle-option:first-child {
+    border-radius: 40px 0 0 40px;
+}
+
+.toggle-option:last-child {
+    border-radius: 0 40px 40px 0;
+}
+
+.toggle-option.active {
+    background: linear-gradient(135deg, var(--btn-1), var(--btn-2));
+    color: #fff;
+    border-color: transparent;
+}
+
+.toggle-badge {
+    position: absolute;
+    top: -26px;
+    right: -14px;
+    background: var(--card-img-2);
+    color: var(--text-highlight);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 40px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(63, 37, 56, 0.1);
+}
+
+/* Pricing cards */
+.pricing-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: stretch;
+    margin-bottom: 64px;
+    background: transparent;
+}
+
+.pricing-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card-label {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.card-price {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.price-strike {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    margin-left: 10px;
+}
+.offer-note {
+    display: inline-block;
+    width: fit-content;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-highlight);
+    background: var(--card-img-2);
+    padding: 4px 12px;
+    border-radius: 40px;
+}
+/* 切到 monthly 時隱藏（228 和優惠期限只屬於 yearly early-bird） */
+.pricing-card.pro.monthly .price-strike,
+.pricing-card.pro.monthly .offer-note { display: none; }
+
+.card-price.bump {
+    animation: priceBump 0.25s ease;
+}
+
+@keyframes priceBump {
+    0% {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.price-period {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.card-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.card-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 14px 24px;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 40px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.card-cta:hover { transform: translateY(-2px); }
+.card-cta.outline {
+    background: transparent;
+    border: 2px solid var(--btn-1);
+    color: var(--text-highlight);
+}
+.card-cta.outline:hover { background: var(--card-bg); }
+.card-cta.gradient {
+    background: linear-gradient(135deg, var(--btn-1), var(--btn-2));
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(251, 108, 193, 0.35);
+}
+.card-cta.gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(251, 108, 193, 0.35);
+}
+
+.card-features {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-features li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.card-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--btn-1);
+    font-weight: 700;
+}
+
+/* Featured (Pro) card */
+.pricing-card.featured {
+    background: linear-gradient(170deg, #fff, #ffe2f5);
+    border: none;
+    /* transform: scale(1.03); */
+    box-shadow: 0 20px 60px rgba(251, 108, 193, 0.2);
+}
+.pricing-card.featured::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--btn-1), var(--btn-2));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+.card-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--btn-1), var(--btn-2));
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 5px 14px;
+    border-radius: 40px;
+    white-space: nowrap;
+}
+
+
+/* Comparison table */
+.comparison {
+    margin-top: 64px;
+}
+
+.comparison-title {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.comparison-table-wrap {
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: #fff;
+    overflow: clip;
+}
+
+.comparison-table thead {
+    position: sticky;
+    top: 68px;           /* 對齊 navbar 高度，若對不準微調這個值 */
+    z-index: 2;
+    box-shadow: 0 1px 0 var(--border);
+}
+
+.comparison-table thead th { background: #fff; }
+.comparison-table .cta-row th { padding: 16px; }
+
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 560px;
+    font-size: 0.95rem;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 14px 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+    text-align: left;
+}
+
+.comparison-table thead th {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.comparison-table thead th:nth-child(3) {
+    color: var(--text-highlight);
+}
+
+/* Choose 按鈕 */
+.table-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 22px;
+    border-radius: 40px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.table-cta:hover { transform: translateY(-2px); }
+.table-cta.outline {
+    background: transparent;
+    border: 2px solid var(--btn-1);
+    color: var(--text-highlight);
+}
+.table-cta.outline:hover { background: var(--card-bg); }
+.table-cta.gradient {
+    background: linear-gradient(135deg, var(--btn-1), var(--btn-2));
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(251, 108, 193, 0.3);
+}
+
+/* .comparison-table tbody tr:hover {
+    background: var(--card-bg);
+} */
+
+.comparison-table .section-row td {
+    background: var(--bg-secondary);
+    font-weight: 700;
+    text-align: left;
+    color: var(--text-primary);
+}
+
+.comparison-table .check {
+    color: var(--btn-1);
+    font-weight: 700;
+}
+
+.comparison-table .dash {
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pricing-cards {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .pricing-card.featured {
+        order: -1;
+        transform: none;
+    }
+
+    .comparison-table-wrap { overflow-x: auto; }
+    .comparison-table thead { position: static; }
+}
