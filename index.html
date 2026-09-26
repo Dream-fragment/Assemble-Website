@@ -1,85 +1,351 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assemble - 數學筆記編輯器</title>
+    <title>Assemble — Write math notes, beautifully</title>
+    <meta name="description"
+        content="Assemble is a math note editor with live LaTeX, interactive GeoGebra, pre-built blocks and cross-device sync.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 </head>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true }
+            ],
+            throwOnError: false
+        });
+    });
+    document.addEventListener('click', function (e) {
+        var trigger = e.target.closest('.collapsible-trigger');
+        if (!trigger) return;
+        var container = trigger.closest('.collapsible-container');
+        if (container) container.classList.toggle('open');
+    });
+</script>
+
 <body>
-    <!-- Navigation bar -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <a href="index.html" class="navbar-brand">
             <img src="app-logo.png" alt="Assemble logo" class="navbar-logo">
             <span class="navbar-title">Assemble</span>
         </a>
         <div class="navbar-links">
-            <!-- Future: Explore, Pricing, etc. -->
+            <a href="#features">Features</a>
+            <a href="#resources">Resources</a>
+            <a href="#pricing">Pricing</a>
         </div>
+        <a href="#download" class="navbar-download">Download</a>
     </nav>
 
-    <div class="container">
-        <h1>Assemble (BETA)</h1>
-        <p class="tagline">你的數學筆記編輯器</p>
-
-        <!-- Image carousel -->
-        <div class="carousel">
-            <button class="carousel-btn carousel-prev" aria-label="上一張">&#10094;</button>
-            <div class="carousel-viewport">
-                <img src="img/display-img (1).png" alt="Assemble 截圖 1" class="carousel-slide">
+    <main>
+        <section class="hero">
+            <h1 class="hero-title">
+                Writing math notes has never been so
+                <span class="typing-wrap"><span class="typing" id="typing">easy.</span><span
+                        class="caret"></span></span>
+            </h1>
+            <div class="hero-actions">
+                <a href="#download" class="btn btn-glass">Download for free</a>
+                <a href="#pricing" class="btn-ghost">View pricing</a>
             </div>
-            <button class="carousel-btn carousel-next" aria-label="下一張">&#10095;</button>
+            <div class="hero-demo">
+                <div class="demo-placeholder">
+                    <!-- TODO: replace with demo video / GIF -->
+                    <img src="img/display-img (1).png" alt="Assemble app demo">
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="feature flip">
+                <div class="feature-decoration">
+                    <div class="theorem-block" style="transform: rotate(3deg)">
+                        <span class="theorem-title">Theorem</span>
+                        <p class="theorem-formula">For a right-angled triangle,<br> we have \(a^2+b^2=c^2\).</p>
+                    </div>
+                </div>
+                <article class="feature-card">
+                    <div class="feature-text">
+                        <h2>Say goodbye to <code>\begin{colorbox}</code>.</h2>
+                        <!-- <p>Stop writing LaTeX boilerplate. Assemble ships with pre-built, styled blocks for theorems, definitions and callouts, so you drop one in and keep writing.</p> -->
+                        <p>Pre-built blocks for theorems, definitions, and examples—so you can focus on the math, not
+                            the endless formatting.</p>
+                    </div>
+                    <div class="feature-media">
+                        <img src="img/display-img (2).png" alt="Pre-built blocks" loading="lazy" decoding="async">
+                    </div>
+                </article>
+            </div>
+
+            <div class="feature-divider">
+                <div class="hint-block">
+                    <span class="hint-title">Hint</span>
+                    <p class="hint-body">Want to visualize your concepts? Just show it!</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-decoration">
+                    <div class="example-block" style="transform: rotate(-3deg)">
+                        <span class="example-title">Example</span>
+                        <p class="example-body">Solve \(2x + 3 = 7\).</p>
+                    </div>
+                </div>
+                <article class="feature-card">
+                    <div class="feature-text">
+                        <h2>Make your notes interactive.</h2>
+                        <p>Go beyond static PDFs. Embed interactive GeoGebra graphs, add practice questions, and hide
+                            solutions until students are ready.</p>
+                    </div>
+                    <div class="feature-media">
+                        <img src="img/display-img (2).png" alt="Interactive notes" loading="lazy" decoding="async">
+                    </div>
+                </article>
+            </div>
+
+            <div class="collapsible-section">
+                <div class="collapsible-container">
+                    <button class="collapsible-trigger" type="button">
+                        <span class="collapsible-title-text">Just like this. Click me!</span>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Put your solutions or extra resources here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature flip">
+                <div class="feature-decoration">
+                    <div class="definition-block" style="transform: rotate(3deg)">
+                        <span class="definition-title">Definition</span>
+                        <p class="definition-body">A <b>function</b> is a rule that assigns each input exactly one
+                            output.</p>
+                    </div>
+                </div>
+                <article class="feature-card">
+                    <div class="feature-text">
+                        <h2>Write like you always have.</h2>
+                        <p>If you've used Word, you already know how
+                            to use Assemble. Bold, italic, headings, lists—all one click away.</p>
+                    </div>
+                    <div class="feature-media">
+                        <img src="img/display-img (2).png" alt="Rich text editor" loading="lazy" decoding="async">
+                    </div>
+                </article>
+            </div>
+
+            <div class="feature">
+                <div class="feature-decoration">
+                    <div class="hint-block" style="transform: rotate(-3deg)">
+                        <span class="hint-title">Hint</span>
+                        <p class="hint-body">What is the period of \(\sin x\)?</p>
+                    </div>
+                </div>
+                <article class="feature-card">
+                    <div class="feature-text">
+                        <h2>Make it yours.</h2>
+                        <p>Choose the skin and font that feel right to you. Whether you're a student, a teacher, or a
+                            researcher, there's a setup that
+                            fits how you work.</p>
+                    </div>
+                    <div class="feature-media">
+                        <img src="img/display-img (2).png" alt="Skins and fonts" loading="lazy" decoding="async">
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="faq" id="faq">
+            <h2 class="faq-title">Frequently asked questions</h2>
+            <div class="faq-list">
+
+                <div class="collapsible-container">
+                    <button class="collapsible-trigger" type="button">
+                        <span class="collapsible-title-text">Is Assemble free?</span>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Yes. The free version is a full editor with no time limit. You get unlimited local notes,
+                                1000 total blocks, and 10 synced notes quota. Upgrade to Pro only if you need more.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible-container">
+                    <button class="collapsible-trigger" type="button">
+                        <span class="collapsible-title-text">What's the difference between Free and Pro?</span>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Free gives you unlimited local notes with 1000 blocks and 10 synced notes. Pro unlocks
+                                unlimited blocks, unlimited sync, auto backup, and 30-day version history.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible-container">
+                    <button class="collapsible-trigger" type="button">
+                        <span class="collapsible-title-text">Which platforms are supported?</span>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Assemble runs on Windows and macOS. A web version is coming soon, and mobile apps are on
+                                the roadmap.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible-container">
+                    <button class="collapsible-trigger" type="button">
+                        <span class="collapsible-title-text">Does it support LaTeX?</span>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Yes. Assemble renders LaTeX with KaTeX, so your formulas look sharp on any device. You
+                                can write inline math like \(a^2 + b^2 = c^2\) or display blocks:</p>
+                            <p>\[a^2 + b^2 = c^2\]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible-container">
+                    <button class="collapsible-trigger" type="button">
+                        <span class="collapsible-title-text">Can I export my notes?</span>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Yes. You can export to PDF or to HTML. Interactive elements like
+                                GeoGebra only work in the HTML export.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible-container">
+                    <button class="collapsible-trigger" type="button">
+                        <span class="collapsible-title-text">Does it work offline?</span>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Yes. Your notes live on your device first. Sync when you're back online.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible-container">
+                    <button class="collapsible-trigger" type="button">
+                        <span class="collapsible-title-text">Is my data private?</span>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Yes. Assemble is local-first by default—your notes stay on your device unless you choose
+                                to sync them. We never sell your data or show ads. See our <a
+                                    href="privacy-policy.html">Privacy
+                                    Policy</a> for details.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible-container">
+                    <button class="collapsible-trigger" type="button">
+                        <span class="collapsible-title-text">Can I get a refund?</span>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Yes. If you're not satisfied within 14 days of purchase, contact us at
+                                <a href="mailto:support@assemblenotes.com">support@assemblenotes.com</a> for a full refund. See the <a href="#">Refund Policy</a> for
+                                full terms.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible-container">
+                    <button class="collapsible-trigger" type="button">
+                        <span class="collapsible-title-text">How do I contact support?</span>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Email us at <a href="mailto:support@assemblenotes.com">support@assemblenotes.com</a>. We usually reply within 24 hours on weekdays.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="final-cta" id="download">
+            <h2>Start your journey today.</h2>
+            <div class="cta-buttons">
+                <a href="downloads/Assemble_0.9.2.0_x64.msix" class="btn btn-download" download>Download for Windows</a>
+                <a href="downloads/Assemble-0.9.2-universal.dmg" class="btn btn-outline" download>Download for Mac</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-brand">
+            <img src="app-logo.png" alt="Assemble">
+            <span>Assemble</span>
         </div>
-
-        <div class="download-section">
-            <a class="download-btn" href="downloads/Assemble_0.9.2.0_x64.msix" download>
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>Windows 版<small class="sub"> · MSIX · 5.8 MB</small></span>
-            </a>
-
-            <a class="download-btn" href="downloads/Assemble-0.9.2-universal.dmg" download>
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>macOS 版<small class="sub"> · DMG · 9.8 MB</small></span>
-            </a>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Refund Policy</a>
         </div>
-
-        <p class="version">最新版本：0.9.2</p>
-
-        <div class="footer">
-            <p>© 2026 Assemble</p>
-            <p><a href="privacy-policy.html">隱私權政策 / Privacy Policy</a></p>
-        </div>
-    </div>
+        <p class="footer-copy">&copy; 2026 Assemble</p>
+    </footer>
 
     <script>
-        // 圖片輪播 - 循環切換
         (function () {
-            const slides = [
-                'img/display-img (1).png',
-                'img/display-img (2).png',
-                'img/display-img (3).png',
-            ];
-            let current = 0;
-            const viewport = document.querySelector('.carousel-viewport');
-            const slideImg = document.querySelector('.carousel-slide');
+            // Typing carousel
+            var words = ['easy.', 'interactive.', 'organized.'];
+            var el = document.getElementById('typing');
+            var wi = 0, ci = 0, deleting = false;
 
-            function showSlide(index) {
-                slideImg.src = slides[index];
-                current = index;
+            function tick() {
+                var word = words[wi];
+                if (!deleting) {
+                    ci++;
+                    el.textContent = word.slice(0, ci);
+                    if (ci === word.length) {
+                        deleting = true;
+                        setTimeout(tick, 1400);
+                        return;
+                    }
+                    setTimeout(tick, 90);
+                } else {
+                    ci--;
+                    el.textContent = word.slice(0, ci);
+                    if (ci === 0) {
+                        deleting = false;
+                        wi = (wi + 1) % words.length;
+                    }
+                    setTimeout(tick, 45);
+                }
             }
+            tick();
 
-            document.querySelector('.carousel-next').addEventListener('click', () => {
-                showSlide((current + 1) % slides.length);  // 循環：最後一張按右回到第一張
-            });
-
-            document.querySelector('.carousel-prev').addEventListener('click', () => {
-                showSlide((current - 1 + slides.length) % slides.length);  // 循環：第一張按左回到最後一張
+            // Navbar shadow on scroll
+            var navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 10) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
             });
         })();
     </script>
 </body>
+
 </html>
