@@ -132,6 +132,19 @@
     object-fit: cover;
 }
 
+.product-summary {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 0;
+    text-align: center;
+}
+
+.product-summary p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
 /* ---------- Features ---------- */
 .features {
     padding: 80px 0;

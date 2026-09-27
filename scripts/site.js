@@ -30,11 +30,11 @@
     var NAV_LINKS = [
         // { label: 'Features', href: 'index.html#features' },
         { label: 'FAQ', href: 'index.html#faq' },
-        { label: 'Resources', href: 'resources.html' },
+        // { label: 'Resources', href: 'resources.html' },
         { label: 'Pricing', href: 'pricing.html' }
     ];
 
-    var DOWNLOAD_HREF = 'index.html#download';
+    var DOWNLOAD_HREF = 'download.html';
 
     var FOOTER_LINKS = [
         { label: 'Pricing', href: 'pricing.html' },

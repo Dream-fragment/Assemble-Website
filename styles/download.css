@@ -1,0 +1,155 @@
+/* =====================================================
+   Assemble — Download page
+   ===================================================== */
+
+.download-section {
+    padding: 80px 24px 64px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* 粉色漸變擴散 */
+.download-section::before {
+    content: '';
+    position: absolute;
+    top: -80%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 1200px;
+    background: radial-gradient(
+        circle at center,
+        rgba(251, 108, 193, 0.25) 0%,
+        rgba(255, 147, 165, 0.15) 30%,
+        rgba(255, 243, 245, 0.05) 60%,
+        transparent 80%
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+
+.download-title {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.download-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 56px;
+    font-size: 1.1rem;
+}
+
+/* ── Cards ── */
+.download-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: stretch;
+}
+
+.download-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 48px 32px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.download-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.download-card-icon {
+    width: 88px;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-card-icon svg {
+    display: block;
+}
+
+.download-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.download-card-platform {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.download-card-info {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.download-card-btn {
+    text-decoration: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 40px;
+    background: linear-gradient(135deg, var(--btn-1), var(--btn-2));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(251, 108, 193, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(251, 108, 193, 0.45);
+}
+
+/* ── Footnote ── */
+.download-footnote {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.download-footnote a {
+    color: var(--text-highlight);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: var(--card-img-2);
+}
+
+.download-footnote a:hover {
+    color: var(--btn-1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .download-section {
+        padding: 56px 20px 48px;
+    }
+
+    .download-cards {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .download-card {
+        padding: 40px 24px 32px;
+    }
+
+    .download-subtitle {
+        margin-bottom: 40px;
+    }
+}
