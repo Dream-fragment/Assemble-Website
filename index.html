@@ -36,23 +36,10 @@
 </script>
 
 <body>
-    <nav class="navbar" id="navbar">
-        <a href="index.html" class="navbar-brand">
-            <img src="app-logo.png" alt="Assemble logo" class="navbar-logo">
-            <span class="navbar-title">Assemble</span>
-        </a>
-        <div class="navbar-links">
-            <a href="#features">Features</a>
-            <a href="#resources">Resources</a>
-            <a href="pricing.html">Pricing</a>
-        </div>
-        <a href="#download" class="navbar-download">Download</a>
-    </nav>
-
     <main>
         <section class="hero">
             <h1 class="hero-title">
-                Writing math notes has never been so<br>
+                Writing math notes<br>has never been so<br>
                 <span class="typing-wrap"><span class="typing" id="typing">easy.</span><span
                         class="caret"></span></span>
             </h1>
@@ -266,8 +253,10 @@
                     <div class="collapsible-content">
                         <div class="collapsible-inner">
                             <p>Yes. If you're not satisfied within 14 days of purchase, contact us at
-                                <a href="mailto:support@assemblenotes.com">support@assemblenotes.com</a> for a full refund. See the <a href="#">Refund Policy</a> for
-                                full terms.</p>
+                                <a href="mailto:support@assemblenotes.com">support@assemblenotes.com</a> for a full
+                                refund. See the <a href="#">Refund Policy</a> for
+                                full terms.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -278,7 +267,8 @@
                     </button>
                     <div class="collapsible-content">
                         <div class="collapsible-inner">
-                            <p>Email us at <a href="mailto:support@assemblenotes.com">support@assemblenotes.com</a>. We usually reply within 24 hours on weekdays.</p>
+                            <p>Email us at <a href="mailto:support@assemblenotes.com">support@assemblenotes.com</a>. We
+                                usually reply within 24 hours on weekdays.</p>
                         </div>
                     </div>
                 </div>
@@ -295,19 +285,6 @@
             </div>
         </section>
     </main>
-
-    <footer class="footer">
-        <div class="footer-brand">
-            <img src="app-logo.png" alt="Assemble">
-            <span>Assemble</span>
-        </div>
-        <div class="footer-links">
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Refund Policy</a>
-        </div>
-        <p class="footer-copy">&copy; 2026 Assemble</p>
-    </footer>
 
     <script>
         (function () {
@@ -347,6 +324,41 @@
             });
         })();
     </script>
+    <script>
+        (function () {
+            var hamburger = document.getElementById('hamburger');
+            var menu = document.getElementById('mobileMenu');
+            var closeBtn = document.getElementById('mobileMenuClose');
+
+            function openMenu() {
+                menu.classList.add('open');
+                document.body.classList.add('menu-open');
+                hamburger.setAttribute('aria-expanded', 'true');
+            }
+            function closeMenu() {
+                menu.classList.remove('open');
+                document.body.classList.remove('menu-open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+
+            hamburger.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+
+            // 點任一選單連結即關閉
+            menu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // 點背景空白處也關閉（選配，可保留或刪掉）
+            menu.querySelector('.mobile-menu-backdrop').addEventListener('click', closeMenu);
+
+            // Esc 鍵關閉（選配）
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+        })();
+    </script>
+    <script src="scripts/site.js" defer></script>
 </body>
 
 </html>

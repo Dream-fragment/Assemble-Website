@@ -393,3 +393,35 @@
     /* .comparison-table-wrap { overflow-x: auto; } */
     .comparison-table thead { position: static; }
 }
+
+/* 小熒幕：表格每格自動換行 + 縮小間距，塞進手機寬度（不要橫向捲動） */
+@media (max-width: 640px) {
+    .comparison-table {
+        min-width: 0;           /* 拿掉 560px，讓表格配合容器寬度 */
+        table-layout: fixed;
+        font-size: 0.8rem;
+    }
+    .comparison-table th,
+    .comparison-table td {
+        padding: 10px 6px;
+        overflow-wrap: break-word;
+    }
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+        width: 40%;             /* Feature 欄文字較長，給多一點 */
+    }
+    .comparison-table th:nth-child(2),
+    .comparison-table td:nth-child(2),
+    .comparison-table th:nth-child(3),
+    .comparison-table td:nth-child(3) {
+        width: 30%;             /* Free / Pro 各 30% */
+    }
+    .comparison-table .table-cta {
+        width: 100%;            /* Choose 按鈕撐滿各自欄位 */
+        font-size: 0.75rem;
+        padding: 8px 6px;
+    }
+    .comparison-table .cta-row th {
+        padding: 10px 6px;
+    }
+}

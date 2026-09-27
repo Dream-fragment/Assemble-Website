@@ -40,6 +40,7 @@
 
 html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;   /* ← 關鍵：開關選單時捲軸空間固定，不位移 */
 }
 
 body {
@@ -56,7 +57,7 @@ img {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.1;
@@ -147,6 +148,123 @@ p {
     box-shadow: 0 6px 20px rgba(251, 108, 193, 0.45);
 }
 
+/* ---------- Mobile hamburger menu ---------- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 11px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--text-primary);
+}
+
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    visibility: hidden;
+    transition: visibility 0.3s ease;
+}
+
+.mobile-menu.open {
+    visibility: visible;
+}
+
+.mobile-menu-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 18, 28, 0.45);   /* 變暗的背景 */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu.open .mobile-menu-backdrop {
+    opacity: 1;
+}
+
+.mobile-menu-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(50%, 360px);               /* 只佔一半（寬度可調） */
+    background: var(--bg);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 24px 32px;
+    box-shadow: -8px 0 32px rgba(63, 37, 56, 0.12);
+}
+
+.mobile-menu.open .mobile-menu-panel {
+    transform: translateX(0);
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 16px;
+    right: 32px;                          /* 跟 navbar 的 32px padding 對齊 */
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    font-size: 2.2rem;
+    line-height: 1;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.mobile-menu-close:hover {
+    color: var(--text-highlight);
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+}
+
+.mobile-menu-links a {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.mobile-menu-links a:hover {
+    color: var(--text-highlight);
+}
+
+.mobile-menu-links .mobile-download {
+    margin-top: 10px;
+    padding: 12px 28px;
+    border-radius: 40px;
+    background: linear-gradient(135deg, var(--btn-1), var(--btn-2));
+    color: #fff;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 14px rgba(251, 108, 193, 0.35);
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
 /* ---------- Footer ---------- */
 .footer {
     border-top: 1px solid var(--border);
@@ -197,14 +315,14 @@ p {
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 620px) {
+@media (max-width: 640px) {
     .typing-wrap {
         min-width: 5.25em;
         white-space: nowrap;
     }
 
     h1 {
-        font-size: 3rem;
+        font-size: 2.35rem;
     }
 
     h2 {
@@ -216,15 +334,20 @@ p {
     }
 }
 
-@media (max-width: 860px) {
-    .navbar-links {
+@media (max-width: 768px) {
+    .navbar-links,
+    .navbar-download {
         display: none;
+    }
+    .hamburger {
+        display: flex;
     }
 }
 
+
 @media (min-width: 1024px) {
     h1 {
-        font-size: 3.5rem;
+        font-size: 4rem;
     }
 
     h2 {
@@ -238,7 +361,7 @@ p {
 
 @media (min-width: 1280px) {
     h1 {
-        font-size: 4rem;
+        font-size: 4.5rem;
     }
 
     h2 {

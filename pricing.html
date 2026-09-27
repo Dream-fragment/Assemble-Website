@@ -15,19 +15,6 @@
 </head>
 
 <body>
-    <nav class="navbar" id="navbar">
-        <a href="index.html" class="navbar-brand">
-            <img src="app-logo.png" alt="Assemble logo" class="navbar-logo">
-            <span class="navbar-title">Assemble</span>
-        </a>
-        <div class="navbar-links">
-            <a href="index.html#features">Features</a>
-            <a href="index.html#faq">Resources</a>
-            <a href="pricing.html" class="active">Pricing</a>
-        </div>
-        <a href="index.html#download" class="navbar-download">Download</a>
-    </nav>
-
     <main>
         <section class="pricing" id="pricing">
             <div class="pricing-hero">
@@ -180,19 +167,6 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-brand">
-            <img src="app-logo.png" alt="Assemble">
-            <span>Assemble</span>
-        </div>
-        <div class="footer-links">
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-            <a href="refund-policy.html">Refund Policy</a>
-        </div>
-        <p class="footer-copy">&copy; 2026 Assemble</p>
-    </footer>
-
     <script>
         (function () {
             var yearlyBtn = document.querySelector('[data-billing="yearly"]');
@@ -233,6 +207,42 @@
             });
         })();
     </script>
+
+    <script>
+        (function () {
+            var hamburger = document.getElementById('hamburger');
+            var menu = document.getElementById('mobileMenu');
+            var closeBtn = document.getElementById('mobileMenuClose');
+
+            function openMenu() {
+                menu.classList.add('open');
+                document.body.classList.add('menu-open');
+                hamburger.setAttribute('aria-expanded', 'true');
+            }
+            function closeMenu() {
+                menu.classList.remove('open');
+                document.body.classList.remove('menu-open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+
+            hamburger.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+
+            // 點任一選單連結即關閉
+            menu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // 點背景空白處也關閉（選配，可保留或刪掉）
+            menu.querySelector('.mobile-menu-backdrop').addEventListener('click', closeMenu);
+
+            // Esc 鍵關閉（選配）
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+        })();
+    </script>
+    <script src="scripts/site.js" defer></script>
 </body>
 
 </html>
