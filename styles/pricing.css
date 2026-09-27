@@ -386,10 +386,10 @@
     }
 
     .pricing-card.featured {
-        order: -1;
+        order: 1;
         transform: none;
     }
 
-    .comparison-table-wrap { overflow-x: auto; }
+    /* .comparison-table-wrap { overflow-x: auto; } */
     .comparison-table thead { position: static; }
 }
