@@ -1,0 +1,135 @@
+/* =====================================================
+   Assemble — Thanks page
+   ===================================================== */
+
+.thanks-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    background: linear-gradient(180deg,
+        rgba(255, 243, 245, 0.6) 0%,
+        rgba(250, 250, 250, 1) 100%);
+}
+
+.thanks-card {
+    max-width: 560px;
+    width: 100%;
+    background: #fff;
+    border-radius: 20px;
+    padding: 48px 32px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(63, 37, 56, 0.12);
+    border: 1px solid var(--border);
+}
+
+.thanks-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.thanks-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.thanks-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+}
+
+.thanks-kitten {
+    margin: 0 auto 32px;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    max-width: 360px;
+    background: linear-gradient(135deg, var(--card-img-1), var(--card-img-2));
+    box-shadow: 0 8px 24px rgba(63, 37, 56, 0.1);
+}
+
+.thanks-kitten img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.thanks-kitten:hover img {
+    transform: scale(1.03);
+}
+
+.thanks-note {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.thanks-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.thanks-actions .btn {
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.thanks-actions .btn-primary {
+    background: linear-gradient(135deg, var(--btn-1), var(--btn-2));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(251, 108, 193, 0.35);
+}
+
+.thanks-actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(251, 108, 193, 0.45);
+}
+
+.thanks-actions .btn-outline {
+    background: transparent;
+    border: 2px solid var(--border);
+    color: var(--text-primary);
+}
+
+.thanks-actions .btn-outline:hover {
+    background: var(--card-bg);
+}
+
+/* 手機 */
+@media (max-width: 640px) {
+    .thanks-card {
+        padding: 32px 24px;
+    }
+
+    .thanks-icon {
+        font-size: 3rem;
+    }
+
+    .thanks-kitten {
+        max-width: 280px;
+    }
+
+    .thanks-actions {
+        flex-direction: column;
+    }
+
+    .thanks-actions .btn {
+        width: 100%;
+    }
+}

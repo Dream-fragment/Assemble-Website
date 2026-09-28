@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks! — Assemble</title>
+    <meta name="description" content="Thank you for supporting Assemble Pro.">
+    <link rel="icon" type="image/png" href="app-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/thanks.css">
+</head>
+
+<body>
+    <main class="thanks-page">
+        <div class="thanks-card">
+            <div class="thanks-icon">🎉</div>
+            <h1 class="thanks-title">Thanks for supporting Assemble!</h1>
+            <p class="thanks-subtitle">
+                In return, this is a random cute kitten:
+            </p>
+
+            <div class="thanks-kitten">
+                <img id="kitten-image" src="" alt="A cute kitten" />
+            </div>
+
+            <p class="thanks-note">
+                Your Pro subscription is now active. Open the Assemble app to access all features.
+            </p>
+
+            <div class="thanks-actions">
+                <a href="https://assemblenotes.com" class="btn btn-primary">Back to Home</a>
+                <a href="mailto:support@assemblenotes.com" class="btn btn-outline">Need help?</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            // 手動列出所有貓咪圖片
+            var kittens = [
+                'img/kittens/kitten-1.jpg',
+                'img/kittens/kitten-2.jpg',
+                'img/kittens/kitten-3.jpg',
+                'img/kittens/kitten-4.jpg',
+                'img/kittens/kitten-5.jpg',
+            ];
+
+            var randomKitten = kittens[Math.floor(Math.random() * kittens.length)];
+            var img = document.getElementById('kitten-image');
+            img.src = randomKitten;
+
+            // 圖片載入失敗的 fallback
+            img.onerror = function () {
+                img.src = 'img/kittens/fallback.jpg';
+            };
+        })();
+    </script>
+    <script src="scripts/site.js" defer></script>
+</body>
+
+</html>
