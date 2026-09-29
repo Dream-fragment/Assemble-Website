@@ -41,31 +41,29 @@
 
     <script>
         (function () {
-            // OAuth（PKCE）→ ?code=xxx；Email 驗證（implicit）→ #access_token=xxx&refresh_token=xxx
             const params = new URLSearchParams(window.location.search);
             const hash = window.location.hash;
+            const isRecovery = params.get('flow') === 'recovery';
 
             let target = 'assemble://auth-callback';
+            if (isRecovery) target += '?flow=recovery';
 
             if (params.has('code')) {
-                target += '?code=' + params.get('code');
+                target += (isRecovery ? '&' : '?') + 'code=' + params.get('code');
             } else if (hash && hash.length > 1) {
-                const h = new URLSearchParams(hash.slice(1));
-                const at = h.get('access_token');
-                const rt = h.get('refresh_token');
-                if (at && rt) {
-                    target += '#access_token=' + at + '&refresh_token=' + rt;
-                }
+                target += hash;   // access_token / refresh_token / type 原樣帶走
             }
 
-            // 讓「返回」按鈕也指向正確的 deep link（自動跳轉被瀏覽器擋時的 fallback）
-            document.getElementById('return-btn').href = target;
+            if (isRecovery) {
+                document.querySelector('h1').textContent = 'Reset your password';
+                document.querySelector('.success-sub').textContent =
+                    'Return to the Assemble app to choose a new password.';
+            }
 
-            // 自動跳回 app（延遲一點讓使用者看到成功訊息）
-            setTimeout(function () {
-                window.location.href = target;
-            }, 500);
+            document.getElementById('return-btn').href = target;
+            setTimeout(function () { window.location.href = target; }, 500);
         })();
+
     </script>
 </body>
 </html>
