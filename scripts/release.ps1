@@ -22,6 +22,18 @@ if (-not (Get-Command makensis -ErrorAction SilentlyContinue)) {
 }
 if (-not (Test-Path $KeyPath)) { throw "signing key not found: $KeyPath" }
 
+# ── 0b) 執行中的 app 會鎖住 build/bin/Assemble.exe，導致 wails build -clean 失敗 ──
+$running = @(Get-Process -Name 'Assemble' -ErrorAction SilentlyContinue)
+if ($running.Count -gt 0) {
+    $pids = ($running | Select-Object -ExpandProperty Id) -join ', '
+    throw "Assemble is running (PID $pids) — close the app before releasing (it locks build/bin/Assemble.exe)"
+}
+$staleExe = Join-Path (Join-Path $AppDir 'build\bin') 'Assemble.exe'
+if (Test-Path $staleExe) {
+    try { Remove-Item $staleExe -Force -ErrorAction Stop }
+    catch { throw "cannot delete $staleExe ($($_.Exception.Message)) — close any app using it, then retry" }
+}
+
 # ── 1) 版本寫進 wails.json（regex 取代，不重排格式）────────
 $wailsJson = Join-Path $AppDir 'wails.json'
 $raw = [System.IO.File]::ReadAllText($wailsJson)
