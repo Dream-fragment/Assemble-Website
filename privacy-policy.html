@@ -31,7 +31,8 @@
                 <ul>
                     <li><strong>What personal information do we collect?</strong> We collect minimal data, primarily
                         your email address for account authentication, payment information if you upgrade to Pro, and
-                        basic technical data to keep the app running smoothly.</li>
+                        basic technical data (including anonymous crash reports, which you can turn off in the app) to
+                        keep the app running smoothly.</li>
                     <li><strong>Do we process any sensitive personal information?</strong> No. We do not collect
                         sensitive personal information like race, religion, or biometric data.</li>
                     <li><strong>Do we collect information from third parties?</strong> We only receive basic payment
@@ -94,6 +95,29 @@
                 </li>
                 <li><strong>Local Storage:</strong> We use essential local storage to keep you logged in and remember
                     your preferences. We do not use tracking cookies for advertising.</li>
+            </ul>
+
+            <h3>Crash and Error Reports (Desktop App)</h3>
+            <p>To fix bugs quickly, the desktop app can send us anonymous crash and error reports. This is
+                <strong>on by default</strong> and you can switch it off at any time in
+                <strong>Settings → About → Anonymous crash reports</strong>.
+            </p>
+            <ul>
+                <li><strong>What is sent:</strong> the app version, your operating system and CPU architecture, the
+                    distribution channel, a random anonymous install ID, a short feature tag (e.g. "editor" or
+                    "export"), and a truncated error message and stack trace.</li>
+                <li><strong>What is never sent:</strong> your note content, block text, formulas, images, file names,
+                    folder names, or your email address. File paths and email addresses are automatically replaced with
+                    placeholders before a report leaves your device, and the report payload is limited to a fixed
+                    allow-list of fields.</li>
+                <li><strong>Account linkage:</strong> if you are signed in we store only an irreversible 8-byte hash of
+                    your account ID so that we can tell whether an issue affects paying users. We never store your
+                    account ID or email in logs.</li>
+                <li><strong>Storage:</strong> reports are stored in our own Cloudflare D1 database (Cloudflare is
+                    already listed as a sub-processor below). They are used only for debugging and reliability, are
+                    never sold, and are never used for advertising.</li>
+                <li><strong>Turning it off:</strong> disabling the toggle stops all uploads immediately and deletes any
+                    reports that were queued but not yet sent.</li>
             </ul>
 
             <h2>3. How We Use Your Information</h2>
@@ -209,6 +233,8 @@
                 </li>
                 <li><strong>Technical Logs:</strong> System and error logs are routinely purged and are kept for no
                     longer than 12 months.</li>
+                <li><strong>Crash Reports:</strong> anonymous crash and error reports are deleted automatically after
+                    90 days.</li>
                 <li><strong>Marketing Preferences:</strong> We retain your marketing opt-in status until you withdraw
                     it.</li>
             </ul>

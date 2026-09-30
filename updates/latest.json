@@ -1,13 +1,19 @@
 {
-  "channel": "stable",
-  "version": "1.0.0",
-  "publishedAt": "2026-09-29",
-  "minSupported": "1.0.0",
-  "installerUrl": "",
-  "sha256": "",
-  "sig": "",
-  "size": 0,
-  "downloadUrl": "https://assemblenotes.com/download.html",
-  "mandatory": false,
-  "notes": []
+    "channel":  "stable",
+    "version":  "1.0.0",
+    "publishedAt":  "2026-09-30",
+    "minSupported":  "1.0.0",
+    "payload":  "",
+    "installerUrl":  "",
+    "sha256":  "",
+    "sig":  "",
+    "size":  0,
+    "downloadUrl":  "https://assemblenotes.com/download.html",
+    "mandatory":  false,
+    "notes":  [
+                  "First public release",
+                  "Customized Skins and Font",
+                  "PDF Export",
+                  "Cloud sync"
+              ]
 }
