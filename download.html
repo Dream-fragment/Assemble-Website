@@ -48,22 +48,37 @@
                     </div>
                     <div class="download-card-content">
                         <h2 class="download-card-platform">macOS</h2>
-                        <p class="download-card-info">Universal DMG &middot; 9.4 MB &middot; v1.0.0</p>
-                        <a href="downloads/Assemble-0.9.2-universal.dmg" class="btn download-card-btn" download>
+                        <p class="download-card-info">Universal DMG &middot; 13.1 MB &middot; v1.0.0</p>
+                        <a href="downloads/Assemble-1.0.0-universal.dmg" class="btn download-card-btn" download>
                             Download for Mac
                         </a>
                     </div>
                 </div>
             </div>
 
-            <details class="download-note">
-                <summary>Windows shows "Windows protected your PC"?</summary>
-                <p>Assemble is not code-signed yet (it's a one-person project), so SmartScreen may warn you once:</p>
-                <ol>
-                    <li>Click <strong>More info</strong>.</li>
-                    <li>Click <strong>Run anyway</strong>.</li>
-                </ol>
-            </details>
+            <div class="download-notes">
+                <details class="download-note">
+                    <summary>Windows shows "Windows protected your PC"?</summary>
+                    <p>Assemble is not code-signed yet (it's a one-person project), so SmartScreen may warn you once:</p>
+                    <ol>
+                        <li>Click <strong>More info</strong>.</li>
+                        <li>Click <strong>Run anyway</strong>.</li>
+                    </ol>
+                </details>
+
+                <details class="download-note">
+                    <summary>macOS says Assemble "can't be opened"?</summary>
+                    <p>Assemble is not notarized by Apple yet (it's a one-person project), so Gatekeeper may block the first
+                        launch:</p>
+                    <ol>
+                        <li>Drag <strong>Assemble</strong> into your <strong>Applications</strong> folder.</li>
+                        <li><strong>Right-click</strong> (or Control-click) the app, choose <strong>Open</strong>, then click
+                            <strong>Open</strong> again.</li>
+                        <!-- <li>Still blocked? Open <strong>Terminal</strong> and run
+                            <code>xattr -dr com.apple.quarantine /Applications/Assemble.app</code>, then launch the app.</li> -->
+                    </ol>
+                </details>
+            </div>
 
             <p class="download-footnote">
                 By downloading, you agree to our <a href="terms.html">Terms of Service</a> and <a

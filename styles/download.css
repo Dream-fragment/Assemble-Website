@@ -115,6 +115,102 @@
     box-shadow: 0 12px 32px rgba(251, 108, 193, 0.45);
 }
 
+/* ── Notes (install warnings) ── */
+.download-notes {
+    max-width: 720px;
+    margin: 48px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.download-note {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: #fff;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.download-note:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* remove the native disclosure triangle */
+.download-note > summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: color 0.2s;
+}
+
+.download-note > summary::-webkit-details-marker {
+    display: none;
+}
+
+.download-note > summary:hover {
+    color: var(--text-highlight);
+}
+
+.download-note > summary::after {
+    content: '▼';
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    color: var(--btn-1);
+    transition: transform 0.3s ease;
+}
+
+.download-note[open] > summary::after {
+    transform: rotate(180deg);
+}
+
+.download-note > summary:focus-visible {
+    outline: 2px solid var(--btn-1);
+    outline-offset: -2px;
+}
+
+.download-note > p {
+    margin: 0;
+    padding: 0 24px 12px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.download-note > ol {
+    margin: 0;
+    padding: 0 24px 20px 44px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.download-note strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.download-note code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace;
+    font-size: 0.85em;
+    color: var(--text-highlight);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1px 6px;
+    word-break: break-word;
+}
+
 /* ── Footnote ── */
 .download-footnote {
     margin-top: 48px;
@@ -151,5 +247,21 @@
 
     .download-subtitle {
         margin-bottom: 40px;
+    }
+
+    .download-notes {
+        margin-top: 40px;
+    }
+
+    .download-note > summary {
+        padding: 16px 20px;
+    }
+
+    .download-note > p {
+        padding: 0 20px 12px;
+    }
+
+    .download-note > ol {
+        padding: 0 20px 18px 40px;
     }
 }
