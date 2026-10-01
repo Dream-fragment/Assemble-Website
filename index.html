@@ -14,6 +14,15 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <noscript>
+        <style>
+            /* No JS: skip the video animation and show the blocks statically. */
+            .demo-block {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
 </head>
 
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -49,9 +58,41 @@
                 <a href="pricing.html" class="btn-ghost">View pricing</a>
             </div>
             <div class="hero-demo">
-                <div class="demo-placeholder">
-                    <!-- TODO: replace with demo video / GIF -->
-                    <img src="img/display-img (1).png" alt="Assemble app demo">
+                <div class="demo-stage" id="demoStage">
+                    <video class="demo-video" id="heroVideo" src="media/hero_demo.mp4" poster="img/display-img (1).png"
+                        muted playsinline preload="auto" aria-label="Assemble app demo"></video>
+
+                    <!-- Pop in on top of the video once it finishes playing -->
+                    <div class="demo-overlay" id="demoOverlay" aria-hidden="true">
+                        <div class="demo-block demo-block--theorem">
+                            <div class="theorem-block">
+                                <span class="theorem-title">Theorem</span>
+                                <p class="theorem-formula">If \( f \) is continuous on \( [a, b] \), then:
+                                    \[ F(x) = \int_{a}^{x} f(t) \, dt \implies F'(x) = f(x) \]</p>
+                            </div>
+                        </div>
+                        <div class="demo-block demo-block--example">
+                            <div class="example-block">
+                                <span class="example-title">Example</span>
+                                <p class="example-body">Given matrices \( A \) and \( B \):
+                                    \[AB=BA=I \implies B=A^{-1}\]</p>
+                            </div>
+                        </div>
+                        <div class="demo-block demo-block--hint">
+                            <div class="hint-block">
+                                <span class="hint-title">Hint</span>
+                                <p class="hint-body">Use Integration by Parts \( \int u \, dv = uv - \int v \, du \):
+                                    \[ \text{Set } u = x \quad \text{and} \quad dv = e^x \, dx \]</p>
+                            </div>
+                        </div>
+                        <div class="demo-block demo-block--definition">
+                            <div class="definition-block">
+                                <span class="definition-title">Definition</span>
+                                <p class="definition-body">A vector space over a field \( F \) is a set \( V \) with
+                                    addition and scalar multiplication satisfying eight axioms.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -327,13 +368,33 @@
                 }
             }
             tick();
+        })();
 
-            // Navbar shadow on scroll
-            var navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 10) navbar.classList.add('scrolled');
-                else navbar.classList.remove('scrolled');
-            });
+        // Hero demo: play the video, then pop app-style blocks in on top
+        (function () {
+            var stage = document.getElementById('demoStage');
+            var video = document.getElementById('heroVideo');
+            if (!stage || !video) return;
+
+            function reveal() {
+                stage.classList.add('is-revealed');
+            }
+
+            // Respect "reduce motion": skip the video, show the blocks straight away
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                reveal();
+                return;
+            }
+
+            // Play once, then reveal the blocks. The video never replays.
+            video.addEventListener('ended', reveal);
+
+            // Autoplay (muted). If the browser blocks it, fall back to the
+            // poster with the blocks already revealed.
+            var play = video.play();
+            if (play && play.catch) {
+                play.catch(function () { reveal(); });
+            }
         })();
     </script>
     <script>
