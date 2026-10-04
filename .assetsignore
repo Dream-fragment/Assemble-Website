@@ -1,0 +1,7 @@
+# 不要把這些上傳成靜態資源（相對於 assets.directory = "."）
+.git
+.assetsignore
+wrangler.jsonc
+wrangler.toml
+src
+functions

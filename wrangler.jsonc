@@ -1,0 +1,20 @@
+{
+    // Assemble 官網（Worker: assemble-website）
+    // 純靜態站 + 一支 fetch script（只在下載檔路徑計數）
+    "name": "assemble-website",
+    "main": "src/index.js",
+    "compatibility_date": "2026-10-01",
+    "assets": {
+        "directory": ".",
+        "binding": "ASSETS",
+        // 只有 /downloads/* 會先執行 Worker script；其餘頁面仍走純靜態快取
+        "run_worker_first": ["/downloads/*"]
+    },
+    "d1_databases": [
+        {
+            "binding": "DB",
+            "database_name": "assemble-db",
+            "database_id": "e66b6a69-dd0a-4b05-9085-21f50247d11d"
+        }
+    ]
+}
